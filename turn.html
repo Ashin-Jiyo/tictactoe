@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Modes</title>
+    <link rel="stylesheet" href="mode.css">
+</head>
+<body>
+    <button class="bb" onclick="playSound('index.html')">
+        Back
+    </button>
+    
+<div class="container">
+    <button class="ct" onclick="playSound('mode.html')">I will go First</button>
+    <button class="ct" onclick="playSound('mode2.html')">I will go Second</button>
+</div>
+
+<audio id="playSound" preload="auto">
+    <source src="play.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function playSound(page) {
+        const sound = document.getElementById("playSound");
+        sound.currentTime = 0; // Reset sound
+        sound.play(); // Play sound
+        
+        // Wait 300ms before redirecting to allow the sound to play
+        setTimeout(() => {
+            window.location.href = page;
+        }, 300);
+    }
+</script>
+</body>
+</html>

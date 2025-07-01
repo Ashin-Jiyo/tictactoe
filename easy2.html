@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button class="bb" onclick="playSound('mode2.html')">
+    Back
+</button>
+
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="restartBtn" onclick="playSound()">Restart Game</button>
+        <audio id="buttonSound" src="sound.mp3"></audio>
+        <audio id="humanSound" src="human-click.mp3"></audio>
+        <audio id="aiSound" src="ai-click.mp3"></audio>
+        <audio id="winSound" src="win.mp3"></audio>
+        <audio id="loseSound" src="lose.mp3"></audio>
+        <audio id="drawSound" src="draw.mp3"></audio>
+
+        <script>
+           function playSound(page) {
+  const sound = document.getElementById("buttonSound");
+  sound.currentTime = 0; // Reset sound
+  sound.play(); // Play sound
+
+  // Wait for the sound to play before redirecting
+  setTimeout(() => {
+    if (page) {
+      window.location.href = page; // Redirect to the provided page
+    } else {
+      location.reload(); // Refresh if no page is provided
+    }
+  }, 500); // Delay to allow sound to finish
+}
+
+          </script>
+
+
+    </div>
+    <script src="ee2.js"></script>
+</body>
+</html>
+

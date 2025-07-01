@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Modes</title>
+    <link rel="stylesheet" href="mode.css">
+</head>
+<body>
+    <button class="bb" onclick="playSound('turn.html')">
+        Back
+    </button>
+    
+    <div class="container">
+    <button class="cb" onclick="playSound('easy2.html')">Easy Mode</button>
+    <button class="cb" onclick="playSound('medium2.html')">Medium Mode</button>
+    <button class="cb" onclick="playSound('hard2.html')">Hard Mode</button>
+</div>
+
+
+<audio id="playSound" preload="auto">
+    <source src="play.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    function playSound(page) {
+        const sound = document.getElementById("playSound");
+        sound.currentTime = 0; // Reset sound
+        sound.play(); // Play sound
+        
+        // Wait 300ms before redirecting to allow the sound to play
+        setTimeout(() => {
+            window.location.href = page;
+        }, 300);
+    }
+</script>
+</body>
+</html>

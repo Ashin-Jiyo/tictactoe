@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Tic Tac Toe</title>
+
+  <!-- 1) Link your stylesheet first -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<!-- 2) Add class="loading" so CSS can hide everything except #preloader -->
+<body class="loading">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div
+      aria-label="Orange and tan hamster running in a metal wheel"
+      role="img"
+      class="wheel-and-hamster"
+    >
+      <div class="wheel"></div>
+      <div class="hamster">
+        <div class="hamster__body">
+          <div class="hamster__head">
+            <div class="hamster__ear"></div>
+            <div class="hamster__eye"></div>
+            <div class="hamster__nose"></div>
+          </div>
+          <div class="hamster__limb hamster__limb--fr"></div>
+          <div class="hamster__limb hamster__limb--fl"></div>
+          <div class="hamster__limb hamster__limb--br"></div>
+          <div class="hamster__limb hamster__limb--bl"></div>
+          <div class="hamster__tail"></div>
+        </div>
+      </div>
+      <div class="spoke"></div>
+    </div>
+  </div>
+
+
+
+  <!-- Your normal page content -->
+  <h1>Tic Tac Toe</h1>
+  <button class="btn" onclick="playSound()">
+    <span>Play Now</span>
+  </button>
+  <h2>- Ashin Jiyo</h2>
+
+  <audio id="playSound" preload="auto">
+    <source src="play.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function playSound() {
+      const s = document.getElementById("playSound");
+      s.currentTime = 0;
+      s.play();
+      setTimeout(() => (location.href = "turn.html"), 500);
+    }
+
+     // Minimum time (ms) we want the preloader to stay visible
+  const MIN_DISPLAY_TIME = 1000; 
+  // When this script runs:
+  const preloaderStart = Date.now();
+  const preloader = document.getElementById("preloader");
+
+  window.addEventListener("load", () => {
+    // How long it’s been since the script ran?
+    const elapsed = Date.now() - preloaderStart;
+    // If page loaded faster than MIN_DISPLAY_TIME, wait the remainder
+    const wait = Math.max(MIN_DISPLAY_TIME - elapsed, 0);
+
+    setTimeout(() => {
+      // Fade out
+      preloader.classList.add("hidden");
+      // After your CSS transition (0.5s), remove it and show content
+      setTimeout(() => {
+        preloader.remove();
+        document.body.classList.remove("loading");
+      }, 500);
+    }, wait);
+  });
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
